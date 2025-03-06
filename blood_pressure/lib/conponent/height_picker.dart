@@ -1,9 +1,10 @@
+import 'package:blood_pressure/conponent/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 void showHeightPickerModal(
     BuildContext context, Function(int, int, String) onHeightSelected) {
-  int selectedFeet = 5;
+  int selectedFeet = 2;
   int selectedInches = 0;
   String selectedUnit = "Feet/Inches";
 
@@ -13,7 +14,7 @@ void showHeightPickerModal(
     context: context,
     builder: (BuildContext builder) {
       return Container(
-        height: 350,
+        height: 300,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -82,22 +83,13 @@ void showHeightPickerModal(
               ),
             ),
             // Nút "Done"
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 32),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                  onHeightSelected(selectedFeet, selectedInches, selectedUnit);
-                },
-                child: Text("Done",
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
-              ),
+
+            ButtonWidget(
+              title: "Done",
+              onTextButtonPressed: () {
+                Navigator.pop(context);
+                onHeightSelected(selectedFeet, selectedInches, selectedUnit);
+              },
             ),
           ],
         ),

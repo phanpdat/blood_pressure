@@ -6,6 +6,17 @@ import 'package:blood_pressure/page/profile_page.dart';
 import 'package:blood_pressure/page/setting_page.dart';
 import 'package:flutter/material.dart';
 
+void showInforModal(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true, // Cho phép mở rộng toàn màn hình
+    backgroundColor: Colors.transparent,
+    builder: (context) => InforPage(
+      ispresse: false,
+    ),
+  );
+} // Lưu trạng thái mục được chọn
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,7 +26,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectedIndex = 0; // Lưu trạng thái mục được chọn
+  int selectedIndex = 0;
+  bool isFirstTime = true;
 
   void onItemTapped(int index) {
     setState(() {
@@ -29,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   final List page = [
     MenuPage(),
     AnalyticsPage(),
-    InforPage(),
+    InforPage(ispresse: true),
     ProfilePage(),
     SettingPage(),
   ];

@@ -11,11 +11,11 @@ class BottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed, // Hiển thị tất cả icon cùng lúc
       backgroundColor: Colors.white,
-      elevation: 0, // Loại bỏ bóng mặc định
-      selectedItemColor: Colors.black, // Màu icon khi được chọn
-      unselectedItemColor: Colors.grey[300], // Màu icon chưa chọn
-      currentIndex: selectedIndex, // Mục đang được chọn
-      onTap: onTap, // Xử lý chọn mục
+      elevation: 0,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.grey[300],
+      currentIndex: selectedIndex,
+      onTap: onTap,
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
         BottomNavigationBarItem(icon: Icon(Icons.show_chart), label: ""),
@@ -29,7 +29,7 @@ class BottomNavBar extends StatelessWidget {
               ),
               child: Icon(Icons.add, size: 30),
             ),
-            label: ""), // Nút giữa lớn hơn
+            label: ""),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
         BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
       ],
