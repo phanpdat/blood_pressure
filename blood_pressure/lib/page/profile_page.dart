@@ -1,3 +1,5 @@
+import 'package:blood_pressure/conponent/my_button.dart';
+import 'package:blood_pressure/page/infor_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -6,11 +8,37 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Center(
-          child: Text("person page"),
+          child: Text("Person Page"),
         ),
-        automaticallyImplyLeading: false,
+      ),
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(child: Container()),
+            ],
+          ),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: SafeArea(
+              child: Center(
+                // 🔥 Đảm bảo nút không bị kéo full width
+                child: SizedBox(
+                  width: 130, // 🔥 Giới hạn chiều rộng của nút
+                  child: ButtonWidget(
+                    title: "ADD NEW",
+                    onTextButtonPressed: () => showInforModal(context),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
