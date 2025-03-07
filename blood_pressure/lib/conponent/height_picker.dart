@@ -1,3 +1,4 @@
+import 'package:blood_pressure/conponent/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -21,7 +22,7 @@ void showHeightPickerModal(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 "Select your height",
                 style: TextStyle(
@@ -83,20 +84,13 @@ void showHeightPickerModal(
             ),
             // Nút "Done"
             Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 32),
-                ),
-                onPressed: () {
+              padding: const EdgeInsets.all(30.0),
+              child: ButtonWidget(
+                title: "Done",
+                onTextButtonPressed: () {
                   Navigator.pop(context);
                   onHeightSelected(selectedFeet, selectedInches, selectedUnit);
                 },
-                child: Text("Done",
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
               ),
             ),
           ],

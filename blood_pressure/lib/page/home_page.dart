@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0; // Lưu trạng thái mục được chọn
-
   void onItemTapped(int index) {
     setState(() {
       selectedIndex = index;

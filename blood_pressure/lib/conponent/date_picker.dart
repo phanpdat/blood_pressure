@@ -1,3 +1,4 @@
+import 'package:blood_pressure/conponent/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -9,23 +10,19 @@ void showDatePickerModal(
     context: context,
     builder: (BuildContext builder) {
       return Container(
-        height: 250,
+        height: 350,
         color: Colors.white,
         child: Column(
           children: [
             // Nút "Done"
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  dateController.text =
-                      "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}";
-                },
-                child: Text("Done",
-                    style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "Select your date of birth",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54),
               ),
             ),
             // Date Picker
@@ -37,6 +34,17 @@ void showDatePickerModal(
                 maximumDate: DateTime(2100),
                 onDateTimeChanged: (DateTime newDate) {
                   selectedDate = newDate;
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 25, top: 10),
+              child: ButtonWidget(
+                title: "Done",
+                onTextButtonPressed: () {
+                  Navigator.pop(context);
+                  dateController.text =
+                      "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}";
                 },
               ),
             ),

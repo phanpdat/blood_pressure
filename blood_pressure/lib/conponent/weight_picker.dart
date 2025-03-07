@@ -1,3 +1,4 @@
+import 'package:blood_pressure/conponent/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -21,7 +22,7 @@ void showWeightPickerModal(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 "Select your weight",
                 style: TextStyle(
@@ -83,23 +84,15 @@ void showWeightPickerModal(
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 32),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                  onWeightSelected(
-                      selectedWeight1, selectedWeight2, selectedUnit);
-                },
-                child: Text("Done",
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
-              ),
-            ),
+                padding: const EdgeInsets.all(30.0),
+                child: ButtonWidget(
+                  title: "Done",
+                  onTextButtonPressed: () {
+                    onWeightSelected(
+                        selectedWeight1, selectedWeight2, selectedUnit);
+                    Navigator.pop(context);
+                  },
+                )),
           ],
         ),
       );

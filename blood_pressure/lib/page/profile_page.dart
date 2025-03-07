@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+  void showInforModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, // Cho phép mở rộng toàn màn hình
+      backgroundColor: Colors.transparent,
+      builder: (context) => InforPage(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
