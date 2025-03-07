@@ -17,13 +17,13 @@ class GenderSelector extends StatelessWidget {
     return GestureDetector(
       onTap: () => onGenderSelected(gender),
       child: Container(
-        width: 100,
+        width: 110,
         height: 60,
         decoration: BoxDecoration(
           color: Color(0xffF2F1F7),
           borderRadius: BorderRadius.circular(10),
         ),
-        padding: EdgeInsets.symmetric(horizontal: 2),
+        padding: EdgeInsets.only(left: 1, right: 3),
         child: Row(
           children: [
             Radio<String>(

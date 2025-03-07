@@ -3,13 +3,20 @@ import 'package:blood_pressure/page/infor_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
+  bool isFirstTime = true;
   void showInforModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true, // Cho phép mở rộng toàn màn hình
       backgroundColor: Colors.transparent,
-      builder: (context) => InforPage(),
+      builder: (context) => InforPage(
+        isFirstTime: isFirstTime,
+        onFirstTimeComplete: () {
+          isFirstTime = false;
+          Navigator.pop(context);
+        },
+      ),
     );
   }
 

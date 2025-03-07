@@ -7,7 +7,7 @@ class MyTextfield extends StatelessWidget {
   final VoidCallback? onTap;
   final bool readOnly;
 
-  MyTextfield({
+  const MyTextfield({
     super.key,
     required this.hintText,
     required this.controller,

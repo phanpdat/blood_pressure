@@ -180,12 +180,11 @@ class _InforPageState extends State<InforPage> {
                           title: "Save",
                           onTextButtonPressed: () {
                             reSetTextField();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(),
-                              ),
-                            );
+                            if (widget.isFirstTime == true) {
+                              widget.onFirstTimeComplete!();
+                            } else {
+                              Navigator.pop(context);
+                            }
                           },
                         ),
                       ),
@@ -199,7 +198,7 @@ class _InforPageState extends State<InforPage> {
           ),
         ),
         Positioned(
-          top: 15,
+          top: 0,
           child: SafeArea(
             child: IconButton(
               onPressed: () => Navigator.pop(context),
